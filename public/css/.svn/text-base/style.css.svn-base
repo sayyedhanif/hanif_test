@@ -1,0 +1,503 @@
+.navbar>.container-fluid .navbar-brand {
+	margin-left: 0px;
+}
+.navbar{
+    background: white;
+    border-radius: 0px;
+}
+.navbar-brand.logo{
+	margin: 0 10px;
+	padding: 0;
+}
+.logo img {
+	width: 80%;
+}
+.console {
+    overflow-wrap: break-word;
+	border : 1px solid #999;
+	min-height: 60px;
+    font-family: monospace;
+    display: inline-block;
+    margin: 6px 6px 6px 6px;
+    padding: 12px 12px 12px 12px;
+    width: 100%;
+}
+.head{
+	margin: 0px auto;
+	font-size: 24px;
+	width: 410px;
+	margin-top: 4px;
+	font-family: monospace;
+}
+
+.bg-red{
+	background-color: #b92c28;
+	color : white;
+}
+
+.bg-green{
+	background-color: #3e8f3e;
+	color : white;
+}
+.validation-result{
+	float:right;
+	font-size: 22px;
+}
+.color-red{
+	color : #b92c28;
+}
+
+.color-green{
+	color : #3e8f3e;
+}
+.container-fluid{
+	background-color: transparent;
+}
+
+.pad-side-30{
+	padding-right: 30px !important;
+	padding-left: 30px !important;
+}
+.well, .btn{
+	border-radius: 0px !important;
+}
+.loading{
+	display: block;
+	position: fixed;
+	z-index: 2000;
+	top: 63px;
+	right: 40px;
+	width: 14px;
+	height: 14px;
+	border: solid 2px transparent;
+	border-top-color: #29d;
+	border-left-color: #29d;
+	border-radius: 10px;
+	-webkit-animation: pace-spinner 400ms linear infinite;
+	-moz-animation: pace-spinner 400ms linear infinite;
+	-ms-animation: pace-spinner 400ms linear infinite;
+	-o-animation: pace-spinner 400ms linear infinite;
+	animation: pace-spinner 400ms linear infinite;
+}
+.outer-container{
+	position: relative;
+}
+.post-content{
+    position: fixed;
+    height: 100%;
+    min-height: 100%;
+    background: none;
+    right: 0px;
+    top: 10%;
+    z-index: 90;
+}
+.post-icon{
+    background:#eee;
+    cursor:pointer;
+    width:40px;
+    height:auto;
+    float:left;
+    border-left: 1px solid #CCCCCC;
+}
+.post-icon{
+    border-radius: 0px;
+    cursor:pointer;
+    width:40px;
+    height:auto;
+    float:left;
+    min-height: 100%;
+}
+.post-icon-open{
+    width:40px;
+}
+.post-icon span h3{
+    color: #000000;
+    height: 35px;
+    left: -55px;
+    position: absolute;
+    text-align: center;
+    top: 63px;
+    transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    width: 155px;
+    color: #fff;
+}
+.post-icon-open span h3{
+    left: -70px;
+}
+span.post-close{
+    display:block;
+    height:35px;
+    width:18px;
+    font-size: 43px;
+    line-height: 43px;
+    color: #22262E;
+}
+ span.post-close{
+    top: 50%;
+    position: absolute;
+    left: 12px;
+}
+span.post-open{
+    left:12px;
+}
+.post-level{
+    background-color:#fff;
+    width:280px;
+    height:100vh;
+    float:left;
+    margin-left:0px;
+    position:relative;
+    padding: 0px 0px 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+.post-level h2{
+    font-size:25px;
+    line-height:26px;
+    margin:0px;
+    padding: 0px;
+    color: #305D8C;
+    text-align: center;
+    letter-spacing: 1px;
+    padding: 0px 0px 20px 0px;
+}
+.post-level h5 {
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+.post-level .nav > li > a{
+	padding:10px 10px;
+}
+.add-auth{
+    width: 100%;
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    border:none;
+    box-shadow: none;
+}
+.auth-list-section {
+    height: auto;
+    margin: 20px auto 0;
+    width: auto;
+}
+.auth-list-section fieldset {
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    height: auto;
+    padding: 0.35em 0.625em 0.75em;
+    text-align: left;
+    width: 100%;
+}
+.auth-list-section fieldset legend {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0;
+    padding: 5px;
+    width: auto;
+}
+.auth-acct {
+    margin: 0 0 20px;
+    width: 70px;
+}
+.post-level .auth-list-section .btn {
+    border: medium none;
+    box-shadow: none;
+    height: 48px;
+    margin: 0 8px 5px;
+    padding: 0;
+    width: 45px;
+}
+.sm .google{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -13px -8px no-repeat;
+}
+.sm .facebook{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -76px -8px no-repeat;
+}
+.sm .twitter{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -141px -8px no-repeat;
+}
+.sm .linkedin{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -206px -8px no-repeat;
+}
+.sm .github{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -272px -8px no-repeat;
+}
+.sm .dropbox{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -335px -9px no-repeat;
+}
+.sm .google_drive{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -395px -8px no-repeat;
+}
+.sm .google_maps{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -453px -8px no-repeat;
+}
+.sm .google_mail{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -512px -9px no-repeat;
+}
+.sm .google_analytics{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -570px -9px no-repeat;
+}
+.sm .google_compute{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -628px -8px no-repeat;
+}
+.sm .google_plus{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -685px -8px no-repeat;
+}
+.sm .box{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -741px -8px no-repeat;
+}
+.sm .evernote,.sm .evernote_sandbox{
+    width: 48px;
+    height: 48px;
+    background: url(../img/small-social-sprite.png) -803px -8px no-repeat;
+}
+.sm .google_calendar{
+   width: 48px;
+   height: 48px;
+   background: url(../img/small-social-sprite.png) -865px -8px no-repeat; 
+}
+.sm .trello{
+   width: 48px;
+   height: 48px;
+   background: url(../img/small-social-sprite.png) -929px -8px no-repeat; 
+}
+.sm .google:hover{
+    background: url(../img/small-social-sprite.png) -13px -81px no-repeat;   
+}
+.sm .facebook:hover{
+    background: url(../img/small-social-sprite.png) -76px -81px no-repeat;   
+}
+.sm .twitter:hover{
+    background: url(../img/small-social-sprite.png) -140px -82px no-repeat;   
+}
+.sm .linkedin:hover{
+    background: url(../img/small-social-sprite.png) -206px -83px no-repeat;   
+}
+.sm .github:hover{
+    background: url(../img/small-social-sprite.png) -272px -84px no-repeat;   
+}
+.sm .dropbox:hover{
+    background: url(../img/small-social-sprite.png) -335px -83px no-repeat;
+}
+.sm .google_drive:hover{
+    background: url(../img/small-social-sprite.png) -395px -83px no-repeat;
+}
+.sm .google_maps:hover{
+    background: url(../img/small-social-sprite.png) -453px -83px no-repeat;
+}
+.sm .google_mail:hover{
+    background: url(../img/small-social-sprite.png) -512px -83px no-repeat;
+}
+.sm .google_analytics:hover{
+    background: url(../img/small-social-sprite.png) -570px -84px no-repeat;
+}
+.sm .google_compute:hover{
+    background: url(../img/small-social-sprite.png) -629px -83px no-repeat;
+}
+.sm .google_plus:hover{
+    background: url(../img/small-social-sprite.png) -685px -83px no-repeat;
+}
+.sm .box:hover{
+    background: url(../img/small-social-sprite.png) -741px -83px no-repeat;
+}
+.sm .evernote:hover ,.sm .evernote_sandbox:hover{
+    background: url(../img/small-social-sprite.png) -803px -83px no-repeat;
+}
+.sm .google_calendar:hover{
+    background: url(../img/small-social-sprite.png) -865px -82px no-repeat;
+}
+.sm .trello:hover{
+    background: url(../img/small-social-sprite.png) -930px -82px no-repeat;
+}
+.post-level .btn i {
+    font-size: 18px;
+    padding: 0 8px 0 0;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+
+.head span{
+	display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 35px;
+    background-image: url("../img/select2-spinner.gif") !important;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.outer-container h2{
+	text-align: center;
+}
+.sandbox-tab{
+    padding: 20px 10px 20px 20px;
+}
+.nav-tabs.bordered > *:first-child a{
+    border-left-width: 0 !important;
+}
+.sandbox-tab ul.parameter_list{
+    padding: 0px;
+   list-style: none;
+}
+.sandbox-tab ul.parameter_list input[type="text"] {
+    width: 135px;
+    padding: 2px 5px;
+    border: 1px solid #D7D7D7;
+}
+.sandbox-tab .create-page-add-global {
+    background: linear-gradient(to bottom, #FAFAFA 0px, #EDEDED 74%, #EBEBEB 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #BABABA;
+    border-radius: 3px !important;
+    float: right;
+    margin: 15px 0 20px;
+}
+.post-level .nav > li > a:hover, 
+.post-level .nav > li > a:focus {
+    background-color: #FAFAFA;
+}
+.nav-tabs > li > a {
+    border-radius: 0;
+    color: #333333;
+}
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus{
+    font-weight: 600;
+}
+.inner-login-box .btn {
+    margin: 20px auto 0;
+    display: block;
+    width: 50%;
+}
+.inner-login-box{
+    width: 75%;
+    margin: 0 auto;
+}
+.inner-login-box h4{
+    text-align: center;
+}
+.auth-list{
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 25px;
+}
+.auth-list .btn{
+    border: none;
+    outline: none;
+}
+.auth-list .btn:focus, 
+.auth-list .btn:active:focus, 
+.auth-list .btn.active:focus,
+.post-level .auth-list-section .btn:focus, 
+.post-level .auth-list-section .btn:active:focus, 
+.post-level .auth-list-section .btn.active:focus{
+    outline: none;
+    outline-offset:0;
+}
+.auth-list .btn:active, 
+.auth-list .btn.active,
+.post-level .auth-list-section .btn:active, 
+.post-level .auth-list-section .btn.active{
+    box-shadow: none;
+}
+.auth-used span.name {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 78%;
+    line-height: 16px;
+}
+.auth-used span.trash {
+    cursor: pointer;
+}
+
+body{
+    height: 100%;
+}
+ul.parameter_list li{
+    margin: 0px 0px 12px 0px;
+}
+
+.navbar{
+    height: 10%;
+    z-index: 100;
+}
+.outer-container{
+    height: 89%;
+    overflow-y: auto;
+}
+body{
+    overflow: hidden;
+}
+.btn-link{
+    margin: 7px 0px 0px 10px;
+    font-size: 1.3em;
+    border: none;
+    background: transparent;
+    padding: 5px 6px;
+    outline: 0px !important;
+    outline-style: none !important;
+}
+.btn-link:focus{
+    outline: 0px;
+    outline-style: none;
+}
+.sandbox-tab .tab-pane {
+height: 580px;
+overflow-x: hidden;
+overflow-y: auto;
+padding-bottom: 20px;
+padding-right: 12px;
+}
+
+@media (max-width: 1280px) {
+	.container
+	{ width: 900px;}
+}
+[data-ng-api]{
+    min-height: 40px;
+}
+
+.select-api-ctrl{
+    width: 250px;
+    float: right;
+}
+.select-api-box:hover{
+    cursor: pointer;
+}

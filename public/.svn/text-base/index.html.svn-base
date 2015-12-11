@@ -1,0 +1,149 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css"/>
+		<script type="text/javascript" src="/js/oauth/oauth.js"></script>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jqueryui.min.js"></script>
+		<script type="text/javascript" src="/js/angular.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap3-typeahead.min.js"></script>
+		<script type="text/javascript" src="/js/jsoneditor.min.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
+        <title>
+            Flow Activity Development Sandbox kit
+        </title>
+	</head>
+    <body data-ng-app="adSandbox" data-ng-controller="form1">
+    <!-- version 1.0 -->
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand logo" href="#">
+                <img alt="BuiltFlow" src="/img/logo.png"/>
+              </a>
+            </div>
+            <div class="head sortable-grid ui-sortable">
+                <span class="ui-autocomplete-loading hide"></span>
+            </div>
+              <button class="btn btn-link pull-right pad-side-30" id="runButton">
+                  <i class="fa fa-bug"></i>
+                  Run
+              </button>
+          </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="outer-container" data-ng-init="getInput()">
+            <div class="container">
+                <h2>Activity Sandbox</h2>
+                <div id="container" >
+                    <div data-ng-api></div>
+                    <div data-ng-render></div>
+                </div>
+
+                    <div id="validator" class="hide"></div>
+
+                    <div id="output-div">
+                        <h3> Activity output <span class="validation-result"></span></h3>
+                        <pre class="console"></pre>
+                    </div>
+                </div>
+
+            <div class="post-content" id="inner-main-content">
+                <div class="post-icon">
+                     <span class="post-close">
+                         <i class="fa fa-caret-left"></i>
+                         <i class="fa fa-caret-right"></i>
+                     </span>
+                </div>
+                <div class="post-level">
+                    <ul class="nav nav-tabs bordered" id="myTab1">
+                            <li class="active">
+                                <a data-toggle="tab" href="#s1">Authorization</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#s2">Configuration
+                                    <span class="badge bg-color-blue txt-color-white" data-ng-bind="config_notifications" data-ng-hide="config_notifications == 0"></span>
+                                </a>
+                            </li>
+                    </ul>
+                    <div class="tab-content sandbox-tab clearfix" id="myTabContent2">
+                        <div id="s1" class="tab-pane active" data-ng-init="onScreen()">
+                            <div>
+                            <button class="btn btn-primary add-auth" data-toggle="modal" data-dismiss="modal" data-target="#auth-content"><i class="fa fa-plus-circle"></i>Add Auth </button>
+                                <span class="clear"></span>
+                                <div class="auth-list-section clearfix">
+                                    <fieldset class="clearfix">
+                                        <legend>Authorization's Used</legend>
+                                        <div data-ng-repeat="authItem in userAuth" class="sm auth-used pull-left auth-acct">
+                                            <button class="btn config-btn" data-ng-class="authItem.type" data-tooltip="{{authItem.name}}"></button>
+                                            <span data-ng-bind="authItem.name" class="name pull-left name"></span>
+                                            <span data-ng-click="removeAuth($index)" class="fa fa-trash-o margin-sides pointer black trash pull-right"></span>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div id="s2" class="tab-pane">
+                            <ul  class="parameter_list">
+                                <li data-ng-repeat="parameter in params" data-repeat-finished>
+                                    <input name="key-name" placeholder="Key" type="text" data-ng-model="parameter.key" class="key" data-ng-blur="setAhead(parameter)" >
+                                    <input name="key-value" placeholder="Value" type="text" data-ng-model="parameter.value" class="value_place">
+                                    <span data-ng-click="removeGlobal($index)" class="fa fa-trash-o margin-sides pointer black"></span>
+                                </li>
+                            </ul>
+                            <button data-ng-click="addGlobal()" class="pointer btn clearfix create-page-add-global">
+                                <span class="fa fa-plus-circle margin-sides"></span>
+                                <b>add parameters</b>
+                            </button>
+                        </div>
+                    </div>
+
+                    <span class="clear"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade modal-auth-content" id="auth-content" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-ng-init="getOauth()">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Authorize Account</h2>
+                    </div>
+                    <div class="modal-body clearfix">
+                        <div class="auth-container">
+                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 clearfix auth-padding" data-ng-repeat="auth in authList">
+                                <div class="auth-list sm" >
+                                    <button class="btn" data-ng-class="auth.name" data-ng-click="attachAuth(auth)"  data-tooltip="{{auth.title}}"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-box well-sm clearfix" style="display:none">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="inner-login-box">
+                                <h4>{{searchedAuth.title}} Login</h4>
+                                <label>Name:</label>
+                                <input type="text" class="form-control" placeholder="Name" data-ng-model="authLabel">
+                                <button class="btn btn-primary" data-ng-click="setAuth()">Authorize</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

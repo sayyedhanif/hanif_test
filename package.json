@@ -1,0 +1,22 @@
+{
+  "name": "activity_development_sandbox",
+  "version": "1.2.0",
+  "description": "Development sandbox for creating flow activities",
+  "author": {
+    "email": "flow@raweng.com"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "open": "0.0.5",
+    "request": "^2.36.0",
+    "cheerio": "^0.17.0",
+    "q": "^1.0.1",
+    "simplecrawler": "^0.3.8",
+    "body-parser": "^1.4.3",
+    "errorhandler": "^1.1.1",
+    "express": "^4.5.0",
+    "cli-prompt": "^0.4.1"
+  }
+}
