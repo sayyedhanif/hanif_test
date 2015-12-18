@@ -2,63 +2,44 @@ var request = require('request');
 
 module.exports = function(){
 
-    this.id = "spark-room-participants-add";
-    this.label = "Add Participants To Room";
+    this.id = "spark-rooms-get";
+    this.label = "Get Rooms";
     this.input = {
-        "title": "Add Participants To Room",
+        "title": "Get Rooms",
         "type": "object",
         "properties": {
             "access_token": {
                 "type": "string",
                 "title": "Spark Access Token",
+                "oauth":"spark",
                 "minLength": 1
-            },
-            "room_id": {
-                "type": "string",
-                "title": "Room ID",
-                "description": "Enter the room ID",
-                "minLength": 1
-            },
-            "participants": {
-                "type": "array",
-                "title": "Participants",
-                "description": "Enter the array of participants",
-                "minItems": 1,
-                "items": {
-                    "type": "object",
-                    "title": "Participant",                    
-                    "properties":{
-                        "id": {
-                            "type": "string",
-                            "title": "Participant Email/ID",
-                            "description": "Enter the email or ID of person",
-                            "minLength": 1
-                        }
-                    }
-                }
-            }       
+            }
         }
     };
 
-    this.help = "This activity add participants to specified room";
+    this.help = "This activity returns all rooms available in your spark account";
 
     this.output = {
         "title": "output",
         "type" : "object",
         "properties" : {
-             "participants": {
+            "rooms": {
                 "type": "array",
-                "title": "participants",
+                "title": "rooms",
                 "items": {
                     "type": "object",
                     "properties" : {
                         "id": {
                             "type": "string",
-                            "title": "id",
+                            "title": "id"
                         },
-                        "isModerator": {
-                            "type": "boolean",
-                            "title": "isModerator",
+                        "title": {
+                            "type": "string",
+                            "title": "title"
+                        },
+                        "created": {
+                            "type": "string",
+                            "title": "created"
                         }
                     }
                 }
@@ -67,32 +48,26 @@ module.exports = function(){
     };
 
     this.execute = function(input, output) {
-        input.participants.forEach(function(elem, index){
-            input.participants[index].isModerator = false;
-        });
 
-        console.log(input.participants)
-       
         request({
-            method :'POST',    
+            method :'GET',
             headers: {
                 "Authorization": "Bearer " + input.access_token,
                 "Content-Type": "application/json"
-            },       
-            url: "https://api.ciscospark.com/hydra/api/v1/rooms/"+ input.room_id + "/participants",
-            json: {
-                participants: input.participants
-            }
+            },
+            url: "https://api.ciscospark.com/hydra/api/v1/rooms"
         }, function(err, res, body){
-            console.log(err, body)
             if(err){
                 return output(err);
+            }
+            if(res.statusCode == 401){
+                return output("Your access token is Invalid or Expired");
             }
             if (res.statusCode >= 200 && res.statusCode < 400){
                 if(typeof(body) == 'string'){
                     body = JSON.parse(body);
                 }
-                return output(null , body);
+                return output(null ,{rooms: body.items});
             }
             return output(body);
         })

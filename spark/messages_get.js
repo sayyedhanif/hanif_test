@@ -73,7 +73,7 @@ module.exports = function(){
                 "Authorization": "Bearer " + input.access_token,
                 "Content-Type": "application/json"
             },
-            url: "https://api.ciscospark.com/hydra/api/v1/messages?roomId=" + input.room_id
+            url: "https://api.ciscospark.com/v1/messages?roomId=" + input.room_id
         }, function(err, res, body){
             if(err){
                 return output(err);
